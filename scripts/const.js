@@ -1,6 +1,6 @@
 const repos = [
+    'pengupengupengu/gfl_live2d_models',
     'Eikanya/Live2d-model',
-    'guansss/pixi-live2d-display',
 ];
 
 const folderBlacklist = [
@@ -17,6 +17,11 @@ const folderBlacklist = [
     'Eikanya/Live2d-model/galgame live2d/カスタムcute ～俺と彼女の育成バトル！～',
     'Eikanya/Live2d-model/galgame live2d/異世界で俺はエロ経営のトップになる！',
     'Eikanya/Live2d-model/galgame live2d/神楽黎明記～Live2d',
+    
+    
+    'Eikanya/Live2d-model/少女前线 girls Frontline/live2dnew/pa15_3701',
+    'Eikanya/Live2d-model/少女前线 girls Frontline/live2dnew/pa15_4202',
+    'pengupengupengu/gfl_live2d_models/models/pa15_5802',
 ];
 
 const fileBlacklist = [

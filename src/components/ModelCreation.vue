@@ -46,7 +46,8 @@ export default Vue.extend({
         value: Boolean,
     },
     data: () => ({
-        url: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/Live2D/Senko_Normals/senko.model3.json',
+        // url: 'https://cdn.jsdelivr.net/gh/Eikanya/Live2d-model/%E5%B0%91%E5%A5%B3%E5%89%8D%E7%BA%BF%20girls%20Frontline/live2dnew/m4a1_4505/normal/normal.model3.json',
+        url: 'https://cdn.jsdelivr.net/gh/pengupengupengu/gfl_live2d_models/models/88type_6503/normal/normal.model3.json',
 
         dropHelpDialog: false,
 

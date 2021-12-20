@@ -20,7 +20,7 @@ function normalize(repo) {
 
 const tasks = repos.map(async repo => {
     const tree = await fetchTree({
-        url: `https://api.github.com/repos/${repo}/git/trees/master`,
+        url: `https://api.github.com/repos/${repo}/git/trees/` + (repo == 'pengupengupengu/gfl_live2d_models' ? `main` : `master`),
     }, true);
 
     const outputFile = path.resolve(outputFolder, normalize(repo) + '-tree.json');

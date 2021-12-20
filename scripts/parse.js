@@ -42,13 +42,16 @@ function main() {
 
         // strip empty arrays
         traverse(json, node => {
-            if (!node.files.length) {
+            if (node.files && !node.files.length) {
                 delete node.files;
             }
-            if (!node.children.length) {
+            if (node.children && !node.children.length) {
                 delete node.children;
             }
         });
+        if (json.name == "Eikanya/Live2d-model") {
+          json.children = [json.children.find((c) => c.name == '少女前线 girls Frontline')];
+        }
 
         const content = JSON.stringify({
             models: json,
