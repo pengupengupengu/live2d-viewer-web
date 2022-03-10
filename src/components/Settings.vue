@@ -7,6 +7,7 @@
       <v-switch class="v-input--reverse" v-model="hitAreaFrames" label="Show hit area frames"></v-switch>
       <v-switch class="v-input--reverse" v-model="modelFrame" label="Show model frames"></v-switch>
       <v-switch class="v-input--reverse" v-model="stats" label="Show stats"></v-switch>
+      <v-switch class="v-input--reverse" v-model="enableInteraction" label="Enable mouse/touch interaction"></v-switch>
 
       <template v-if="currentBackground">
         <v-divider></v-divider>
@@ -42,6 +43,7 @@ export default Vue.extend({
         hitAreaFrames: false,
         modelFrame: false,
         stats: false,
+        enableInteraction: false,
         lastUpdated: new Date(__BUILD_TIME__).toLocaleString(),
         currentBackground: Background.current,
     }),
@@ -58,12 +60,16 @@ export default Vue.extend({
         modelFrame(value: boolean) {
             App.showModelFrame = value;
         },
+        enableInteraction(value: boolean) {
+            App.enableInteraction = value;
+        },
     },
     created() {
         this.stats = App.showStats;
         this.volume = App.volume;
         this.hitAreaFrames = App.showHitAreaFrames;
         this.modelFrame = App.showModelFrame;
+        this.enableInteraction = App.enableInteraction;
 
         Background.emitter.on('change', this.backgroundChanged, this);
     },

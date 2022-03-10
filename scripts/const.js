@@ -19,6 +19,8 @@ const folderBlacklist = [
     'Eikanya/Live2d-model/galgame live2d/神楽黎明記～Live2d',
     
     
+    'Eikanya/Live2d-model/少女前线 girls Frontline/live2dold/gun/pa15_3701',
+    'Eikanya/Live2d-model/少女前线 girls Frontline/live2dold/gun/pa15_4202',
     'Eikanya/Live2d-model/少女前线 girls Frontline/live2dnew/pa15_3701',
     'Eikanya/Live2d-model/少女前线 girls Frontline/live2dnew/pa15_4202',
     'pengupengupengu/gfl_live2d_models/models/pa15_5802',

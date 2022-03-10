@@ -4,6 +4,7 @@ import { save } from '@/utils/storage';
 import Stats from 'stats.js';
 import { PixiApp } from '@/app/PixiApp';
 import { Live2DModel } from '@/app/Live2DModel';
+import { InteractionManager } from '@pixi/interaction';
 
 const stats = new Stats();
 stats.showPanel(0);
@@ -19,8 +20,10 @@ export class App {
     private static _showHitAreaFrames = false;
     private static _showModelFrame = false;
     private static _showStats = true;
+    private static _enableInteraction = true;
 
     static addModel(source: string | ExtendedFileList): number {
+      window.pixiApp = this.pixiApp;
         const model = new ModelEntity(source, this.pixiApp.renderer);
 
         this.initModel(model);
@@ -115,5 +118,27 @@ export class App {
 
     static get showHitAreaFrames(): boolean {
         return this._showHitAreaFrames;
+    }
+
+    @save('enableInteraction')
+    static set enableInteraction(enableInteraction: boolean) {
+        this._enableInteraction = enableInteraction;
+        if (this._enableInteraction) {
+          this.pixiApp.renderer.plugins.interaction = new InteractionManager(this.pixiApp.renderer);
+        } else {
+          // Simulate mouse moving to the center of the screen to "reset" models.
+          this.pixiApp.renderer.plugins.interaction.onPointerMove(new MouseEvent("mousemove", {
+              view: window,
+              bubbles: true,
+              cancelable: true,
+              clientX: window.innerWidth * 0.5,
+              clientY: window.innerHeight * 0.5,
+          }));
+          this.pixiApp.renderer.plugins.interaction.destroy();
+        }
+    }
+
+    static get enableInteraction(): number {
+        return this._enableInteraction;
     }
 }
